@@ -1,0 +1,36 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.demo.bookingapp"
+    },
+    "jhipsterVersion": "6.1.1",
+    "applicationType": "monolith",
+    "baseName": "bookingapp",
+    "packageName": "com.demo.bookingapp",
+    "packageFolder": "com/demo/bookingapp",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NjAyNWI5NDg0MWQ0ZWZmYmE1YzkxNDY5ZjVmOTIzZGZiNzg5ZjhjNWQzY2M0ZWU2MmEyZmM0ODY5NzI2ZWUyNjIyNzY2NjgxZmQwMzQwOGVmMTI1ZDRmYjdjMzliYTM1MTU4M2FhZWNmMmFhZDM3MzQ1MDMyNDNmNWY0YzBkZGI=",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "testFrameworks": ["gatling"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false
+  }
+}
