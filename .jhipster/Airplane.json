@@ -1,0 +1,38 @@
+{
+    "name": "Airplane",
+    "fields": [
+        {
+            "fieldName": "flightName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "flightNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fFare",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fTiming",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "transport",
+            "otherEntityRelationshipName": "airplane",
+            "relationshipName": "airplane"
+        }
+    ],
+    "changelogDate": "20190622153158",
+    "entityTableName": "airplane",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 class="row justify-content-center" id="jhi-bookings-heading">Enter Card Details</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_cardNo">Card No</label>
+                    <input type="text" class="form-control" name="cardNo" id="field_cardNo"
+                           formControlName="cardNo"/>
+                    <div *ngIf="editForm.get('cardNo').invalid && (editForm.get('cardNo').dirty || editForm.get('cardNo').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('cardNo').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('cardNo').errors.maxlength">
+                        This field cannot be longer than 16 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_validThru">Valid Thru</label>
+                    <input type="text" class="form-control" name="validThru" id="field_validThru"
+                           formControlName="validThru"/>
+                    <div *ngIf="editForm.get('validThru').invalid && (editForm.get('validThru').dirty || editForm.get('validThru').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('validThru').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('validThru').errors.maxlength">
+                        This field cannot be longer than 5 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_cvv">Cvv</label>
+                    <input type="number" class="form-control" name="cvv" id="field_cvv"
+                           formControlName="cvv"/>
+                    <div *ngIf="editForm.get('cvv').invalid && (editForm.get('cvv').dirty || editForm.get('cvv').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('cvv').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('cvv')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+                <!-- <div class="form-group">
+                    <label class="form-control-label" for="field_status">Status</label>
+                    <select class="form-control" name="status" formControlName="status" id="field_status">
+                        <option value="CONFIRMED">CONFIRMED</option>
+                        <option value="CANCELLED">CANCELLED</option>
+                        <option value="TRANSACTIONFAILURE">TRANSACTIONFAILURE</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_transport">Transport</label>
+                    <select class="form-control" id="field_transport" name="transport" formControlName="transport">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="transportOption.id === editForm.get('transport').value?.id ? editForm.get('transport').value : transportOption" *ngFor="let transportOption of transports; trackBy: trackTransportById">{{transportOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_customer">Customer</label>
+                    <select class="form-control" id="field_customer" name="customer" formControlName="customer">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customerOption.id === editForm.get('customer').value?.id ? editForm.get('customer').value : customerOption" *ngFor="let customerOption of customers; trackBy: trackCustomerById">{{customerOption.id}}</option>
+                    </select>
+                </div> -->
+            </div>
+            <div class="row justify-content-center">
+                    <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    &nbsp;<span>Cancel</span>
+                </button>&nbsp;
+                <button type="submit" id="save-entity" [routerLink]="['/']" [disabled]="editForm.invalid || isSaving" class="btn btn-success">
+                    &nbsp;<span>Book</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-transport-heading">Create or edit a Transport</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_transportType">Transport Type</label>
+                    <select class="form-control" name="transportType" formControlName="transportType" id="field_transportType">
+                        <option value="Roadways">Roadways</option>
+                        <option value="Railways">Railways</option>
+                        <option value="Airways">Airways</option>
+                    </select>
+                    <div *ngIf="editForm.get('transportType').invalid && (editForm.get('transportType').dirty || editForm.get('transportType').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('transportType').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_serviceProviderName">Service Provider Name</label>
+                    <input type="text" class="form-control" name="serviceProviderName" id="field_serviceProviderName"
+                           formControlName="serviceProviderName"/>
+                    <div *ngIf="editForm.get('serviceProviderName').invalid && (editForm.get('serviceProviderName').dirty || editForm.get('serviceProviderName').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('serviceProviderName').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_availability">Availability</label>
+                    <select class="form-control" name="availability" formControlName="availability" id="field_availability">
+                        <option value="SUNDAY">SUNDAY</option>
+                        <option value="MONDAY">MONDAY</option>
+                        <option value="TUESDAY">TUESDAY</option>
+                        <option value="WEDNESDAY">WEDNESDAY</option>
+                        <option value="THURSDAY">THURSDAY</option>
+                        <option value="FRIDAY">FRIDAY</option>
+                        <option value="SATURDAY">SATURDAY</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_train">Train</label>
+                    <select class="form-control" id="field_train" name="train" formControlName="train">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="trainOption.id === editForm.get('train').value?.id ? editForm.get('train').value : trainOption" *ngFor="let trainOption of trains; trackBy: trackTrainById">{{trainOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_bus">Bus</label>
+                    <select class="form-control" id="field_bus" name="bus" formControlName="bus">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="busOption.id === editForm.get('bus').value?.id ? editForm.get('bus').value : busOption" *ngFor="let busOption of buses; trackBy: trackBusById">{{busOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_airplane">Airplane</label>
+                    <select class="form-control" id="field_airplane" name="airplane" formControlName="airplane">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="airplaneOption.id === editForm.get('airplane').value?.id ? editForm.get('airplane').value : airplaneOption" *ngFor="let airplaneOption of airplanes; trackBy: trackAirplaneById">{{airplaneOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_source">Source</label>
+                    <select class="form-control" id="field_source" name="source" formControlName="source">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sourceOption.id === editForm.get('source').value?.id ? editForm.get('source').value : sourceOption" *ngFor="let sourceOption of sources; trackBy: trackSourceById">{{sourceOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_destination">Destination</label>
+                    <select class="form-control" id="field_destination" name="destination" formControlName="destination">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="destinationOption.id === editForm.get('destination').value?.id ? editForm.get('destination').value : destinationOption" *ngFor="let destinationOption of destinations; trackBy: trackDestinationById">{{destinationOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

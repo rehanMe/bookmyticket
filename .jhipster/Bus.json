@@ -1,0 +1,38 @@
+{
+    "name": "Bus",
+    "fields": [
+        {
+            "fieldName": "busName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "busNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "bFare",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "bTiming",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "transport",
+            "otherEntityRelationshipName": "bus",
+            "relationshipName": "bus"
+        }
+    ],
+    "changelogDate": "20190622153157",
+    "entityTableName": "bus",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

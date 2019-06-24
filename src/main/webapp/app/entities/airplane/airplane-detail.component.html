@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="airplane">
+            <h2><span>Airplane</span> {{airplane.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Flight Name</span></dt>
+                <dd>
+                    <span>{{airplane.flightName}}</span>
+                </dd>
+                <dt><span>Flight Number</span></dt>
+                <dd>
+                    <span>{{airplane.flightNumber}}</span>
+                </dd>
+                <dt><span>F Fare</span></dt>
+                <dd>
+                    <span>{{airplane.fFare}}</span>
+                </dd>
+                <dt><span>F Timing</span></dt>
+                <dd>
+                    <span>{{airplane.fTiming}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/airplane', airplane.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

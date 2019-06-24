@@ -1,0 +1,26 @@
+{
+    "name": "Destination",
+    "fields": [
+        {
+            "fieldName": "destinationName",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "transport",
+            "otherEntityRelationshipName": "destination",
+            "relationshipName": "destination"
+        }
+    ],
+    "changelogDate": "20190622153202",
+    "entityTableName": "destination",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Transport.
+    -->
+    <changeSet id="20190622153155-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="train_id"
+                                 baseTableName="transport"
+                                 constraintName="fk_transport_train_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="train"/>
+
+        <addForeignKeyConstraint baseColumnNames="bus_id"
+                                 baseTableName="transport"
+                                 constraintName="fk_transport_bus_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bus"/>
+
+        <addForeignKeyConstraint baseColumnNames="airplane_id"
+                                 baseTableName="transport"
+                                 constraintName="fk_transport_airplane_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="airplane"/>
+
+        <addForeignKeyConstraint baseColumnNames="source_id"
+                                 baseTableName="transport"
+                                 constraintName="fk_transport_source_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="source"/>
+
+        <addForeignKeyConstraint baseColumnNames="destination_id"
+                                 baseTableName="transport"
+                                 constraintName="fk_transport_destination_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="destination"/>
+
+    </changeSet>
+</databaseChangeLog>

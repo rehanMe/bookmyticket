@@ -1,0 +1,73 @@
+
+
+entity Transport{
+transportType TransportType required,
+serviceProviderName String required,
+availability WeekDays
+}
+enum TransportType {
+Roadways, Railways, Airways
+}
+entity Train {
+trainName String,
+trainNumber String,
+tFare Integer,
+tTiming String
+}
+enum WeekDays {
+    SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
+}
+
+entity Bus {
+busName String,
+busNumber String,
+bFare Integer,
+bTiming String
+}
+
+entity Airplane {
+flightName String,
+flightNumber String,
+fFare Integer,
+fTiming String
+}
+
+entity Bookings{
+cardNo String required maxlength(16),
+validThru String required maxlength(5),
+cvv Integer required,
+name String,
+status Status 
+}
+enum Status{
+CONFIRMED, CANCELLED, TRANSACTIONFAILURE
+}
+entity Customer{
+cName String,
+cAge Integer,
+cGender Gender,
+phone String required maxlength(10),
+email String
+}
+enum Gender{
+Male, Female, Others
+}
+
+entity Source {
+sourceName String
+}
+entity Destination {
+destinationName String
+}
+
+relationship OneToMany {
+	Customer{Customer} to Bookings,
+    Transport{transport} to Bookings,
+    Bus{bus} to Transport,
+    Train{Train} to Transport,
+    Airplane{Airplane} to Transport
+    Source{Source} to Transport,
+    Destination{Destination} to Transport
+
+    }
+

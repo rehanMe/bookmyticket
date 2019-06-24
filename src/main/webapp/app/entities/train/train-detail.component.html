@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="train">
+            <h2><span>Train</span> {{train.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Train Name</span></dt>
+                <dd>
+                    <span>{{train.trainName}}</span>
+                </dd>
+                <dt><span>Train Number</span></dt>
+                <dd>
+                    <span>{{train.trainNumber}}</span>
+                </dd>
+                <dt><span>T Fare</span></dt>
+                <dd>
+                    <span>{{train.tFare}}</span>
+                </dd>
+                <dt><span>T Timing</span></dt>
+                <dd>
+                    <span>{{train.tTiming}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/train', train.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

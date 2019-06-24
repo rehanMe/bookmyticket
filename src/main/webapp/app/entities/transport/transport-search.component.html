@@ -1,0 +1,125 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="search()" [formGroup]="editForm">
+            <h2 class="row justify-content-center" id="jhi-transport-heading">Search for Busses,Trains & Flights!</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+                <label class="form-control-label" for="field_date">Select Date</label>
+                <div class="input-group">
+                    <input id="field_date" type="text" (ngModelChange)="check_date()" class="form-control" name="date"
+                        [minDate]="minDate" ngbDatepicker #dateDp="ngbDatepicker" required />
+                    <span class="input-group-append">
+                        <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()">
+                            <fa-icon [icon]="'calendar-alt'"></fa-icon>
+                        </button>
+                    </span>
+                </div>
+                <small class="form-text text-danger" [hidden]="!editForm.controls.date?.invalid">
+                    Please Select the Valid Date.
+                </small>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_source">Select Source</label>
+                    <select class="form-control" id="field_source" name="source" formControlName="source">
+                        <option [ngValue]="null"></option>
+                        <option
+                            [ngValue]="sourceOption.id === editForm.get('source').value?.id ? editForm.get('source').value : sourceOption"
+                            *ngFor="let sourceOption of sources; trackBy: trackSourceById">{{sourceOption.sourceName}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_destination">Select Destination</label>
+                    <select class="form-control" id="field_destination" name="destination"
+                        formControlName="destination">
+                        <option [ngValue]="null"></option>
+                        <option
+                            [ngValue]="destinationOption.id === editForm.get('destination').value?.id ? editForm.get('destination').value : destinationOption"
+                            *ngFor="let destinationOption of destinations; trackBy: trackDestinationById">
+                            {{destinationOption.destinationName}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+
+                <button type="submit" id="save-entity" class="btn btn-primary">
+                    <fa-icon [icon]="'search'"></fa-icon>&nbsp;<span>Search</span>
+                </button>
+            </div>
+        </form>
+        <div class="table-responsive" *ngIf="transports?.length > 0">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th><span>Type</span></th>
+                        <th><span>Service Provider</span></th>
+
+                        <th><span>Name(number)</span></th>
+                        <th><span>Timing</span></th>
+                        <th><span>Fare in Rs.</span></th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let transport of transports ;trackBy: trackId">
+                        <td>{{transport.transportType}}</td>
+                        <td>{{transport.serviceProviderName}}</td>
+                        <td>
+                            <div *ngIf="transport.train">
+                                <a
+                                    [routerLink]="['../train', transport.train?.id, 'view' ]">{{transport.train?.trainName}}({{transport.train?.trainNumber}})</a>
+                            </div>
+                            <div *ngIf="transport.bus">
+                                <a
+                                    [routerLink]="['../bus', transport.bus?.id, 'view' ]">{{transport.bus?.busName}}({{transport.bus?.busNumber}})</a>
+                            </div>
+                            <div *ngIf="transport.airplane">
+                                <a
+                                    [routerLink]="['../airplane', transport.airplane?.id, 'view' ]">{{transport.airplane?.flightName}}({{transport.airplane?.flightNumber}})</a>
+                            </div>
+                        </td>
+                        <td>
+                            <div *ngIf="transport.train">
+                                <a
+                                    [routerLink]="['../train', transport.train?.id, 'view' ]">{{transport.train?.tTiming}}</a>
+                            </div>
+                            <div *ngIf="transport.bus">
+                                <a [routerLink]="['../bus', transport.bus?.id, 'view' ]">{{transport.bus?.bTiming}}</a>
+                            </div>
+                            <div *ngIf="transport.airplane">
+                                <a
+                                    [routerLink]="['../airplane', transport.airplane?.id, 'view' ]">{{transport.airplane?.fTiming}}</a>
+                            </div>
+                        </td>
+                        <td>
+                            <div *ngIf="transport.train">
+                                <a
+                                    [routerLink]="['../train', transport.train?.id, 'view' ]">{{transport.train?.tFare}}</a>
+                            </div>
+                            <div *ngIf="transport.bus">
+                                <a [routerLink]="['../bus', transport.bus?.id, 'view' ]">{{transport.bus?.bFare}}</a>
+                            </div>
+                            <div *ngIf="transport.airplane">
+                                <a
+                                    [routerLink]="['../airplane', transport.airplane?.id, 'view' ]">{{transport.airplane?.fFare}}</a>
+                            </div>
+                        </td>
+
+                        <td class="text-right">
+                            <div class="btn-group">
+                                <button type="submit" [routerLink]="['/customer/new']" class="btn btn-info btn-sm">
+                                    <span class="d-none d-md-inline">Book</span>
+                                </button>
+
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

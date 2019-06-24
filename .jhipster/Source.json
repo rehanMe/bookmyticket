@@ -1,0 +1,26 @@
+{
+    "name": "Source",
+    "fields": [
+        {
+            "fieldName": "sourceName",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "transport",
+            "otherEntityRelationshipName": "source",
+            "relationshipName": "source"
+        }
+    ],
+    "changelogDate": "20190622153201",
+    "entityTableName": "source",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

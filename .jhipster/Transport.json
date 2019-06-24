@@ -1,0 +1,72 @@
+{
+    "name": "Transport",
+    "fields": [
+        {
+            "fieldName": "transportType",
+            "fieldType": "TransportType",
+            "fieldValues": "Roadways,Railways,Airways",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "serviceProviderName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "availability",
+            "fieldType": "WeekDays",
+            "fieldValues": "SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "bookings",
+            "otherEntityRelationshipName": "transport",
+            "relationshipName": "transport"
+        },
+        {
+            "relationshipName": "train",
+            "otherEntityName": "train",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "bus",
+            "otherEntityName": "bus",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "airplane",
+            "otherEntityName": "airplane",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "source",
+            "otherEntityName": "source",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "destination",
+            "otherEntityName": "destination",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190622153155",
+    "entityTableName": "transport",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

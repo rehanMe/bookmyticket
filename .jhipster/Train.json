@@ -1,0 +1,38 @@
+{
+    "name": "Train",
+    "fields": [
+        {
+            "fieldName": "trainName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "trainNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tFare",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tTiming",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "transport",
+            "otherEntityRelationshipName": "train",
+            "relationshipName": "train"
+        }
+    ],
+    "changelogDate": "20190622153156",
+    "entityTableName": "train",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

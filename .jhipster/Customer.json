@@ -1,0 +1,48 @@
+{
+    "name": "Customer",
+    "fields": [
+        {
+            "fieldName": "cName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cAge",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "cGender",
+            "fieldType": "Gender",
+            "fieldValues": "Male,Female,Others"
+        },
+        {
+            "fieldName": "phone",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 10
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "bookings",
+            "otherEntityRelationshipName": "customer",
+            "relationshipName": "customer"
+        }
+    ],
+    "changelogDate": "20190622153200",
+    "entityTableName": "customer",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

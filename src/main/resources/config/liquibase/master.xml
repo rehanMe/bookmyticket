@@ -14,6 +14,16 @@
     <property name="uuidType" value="varchar(36)" dbms="h2, mysql, mariadb"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190622153155_added_entity_Transport.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190622153156_added_entity_Train.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190622153157_added_entity_Bus.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190622153158_added_entity_Airplane.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190622153159_added_entity_Bookings.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190622153200_added_entity_Customer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190622153201_added_entity_Source.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190622153202_added_entity_Destination.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190622153155_added_entity_constraints_Transport.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190622153159_added_entity_constraints_Bookings.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

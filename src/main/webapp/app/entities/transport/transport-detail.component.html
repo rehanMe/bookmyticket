@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="transport">
+            <h2><span>Transport</span> {{transport.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Transport Type</span></dt>
+                <dd>
+                    <span>{{transport.transportType}}</span>
+                </dd>
+                <dt><span>Service Provider Name</span></dt>
+                <dd>
+                    <span>{{transport.serviceProviderName}}</span>
+                </dd>
+                <dt><span>Availability</span></dt>
+                <dd>
+                    <span>{{transport.availability}}</span>
+                </dd>
+                <dt><span>Train</span></dt>
+                <dd>
+                    <div *ngIf="transport.train">
+                        <a [routerLink]="['/train', transport.train?.id, 'view']">{{transport.train?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Bus</span></dt>
+                <dd>
+                    <div *ngIf="transport.bus">
+                        <a [routerLink]="['/bus', transport.bus?.id, 'view']">{{transport.bus?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Airplane</span></dt>
+                <dd>
+                    <div *ngIf="transport.airplane">
+                        <a [routerLink]="['/airplane', transport.airplane?.id, 'view']">{{transport.airplane?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Source</span></dt>
+                <dd>
+                    <div *ngIf="transport.source">
+                        <a [routerLink]="['/source', transport.source?.id, 'view']">{{transport.source?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Destination</span></dt>
+                <dd>
+                    <div *ngIf="transport.destination">
+                        <a [routerLink]="['/destination', transport.destination?.id, 'view']">{{transport.destination?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/transport', transport.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
