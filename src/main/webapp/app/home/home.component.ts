@@ -12,6 +12,7 @@ import { LoginModalService, AccountService, Account } from 'app/core';
 export class HomeComponent implements OnInit {
   account: Account;
   modalRef: NgbModalRef;
+  images = [1, 2, 3].map(() => `https://picsum.photos/1500/500?bookings&t=${Math.random()}`);
 
   constructor(
     private accountService: AccountService,

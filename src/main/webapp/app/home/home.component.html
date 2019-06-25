@@ -1,28 +1,74 @@
-<div class="row justify-content-center">
-
-    <div class="col-md-9">
-        <div class="row justify-content-center" [ngSwitch]="isAuthenticated()">
-
-            <h1 class="display-4" *ngSwitchCase="false">Welcome to BookmyTicket</h1>
-        </div>
+    <div>
+        <div class="row justify-content-center">
         <div [ngSwitch]="isAuthenticated()">
 
-            <div class="alert alert-warning" *ngSwitchCase="false">
+            <h1 *ngSwitchCase="false">Welcome to BookmyTicket</h1>
+        </div>
+        </div>
+        <div [ngSwitch]="isAuthenticated()">
+            <div *ngSwitchCase="false">
+                <ngb-carousel *ngIf="images">
+                    <ng-template ngbSlide>
+                      <img [src]="images[0]" alt="Random first slide">
+                      <div class="carousel-caption">
+                        <h2>Travel!</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbSlide>
+                      <img [src]="images[1]" alt="Random second slide">
+                      <div class="carousel-caption">
+                        <h2>Book!</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbSlide>
+                      <img [src]="images[2]" alt="Random third slide">
+                      <div class="carousel-caption">
+                        <h2>Go!</h2>
+                      </div>
+                    </ng-template>
+                  </ngb-carousel>
+                </div>
+                &nbsp;
+            <div class="col-md-9" class="alert alert-warning" *ngSwitchCase="false">
                 <a class="alert-link" (click)="login()">sign in to book a ticket!</a>
             </div>
-            <div class="alert alert-warning" *ngSwitchCase="false">
+            <div class="col-md-9" class="alert alert-warning" *ngSwitchCase="false">
                 <span>You don't have an account yet?</span>&nbsp;
                 <a class="alert-link" routerLink="register">Register a new account</a>
             </div>
+            
         </div>
         <!-- after login -->
      
             <div [ngSwitch]="isAuthenticated()">
-                    <div class="row justify-content-center" *ngSwitchCase="true">
+                    <div class="col-md-9" class="row justify-content-center" *ngSwitchCase="true">
 
                             <h1 class="display-4" *ngIf="account">Welcome {{account.login}}</h1>
                         </div>
-                        <div *ngSwitchCase="true" class="row justify-content-center">
+                        <div *ngSwitchCase="true">
+                        <ngb-carousel *ngIf="images">
+                            <ng-template ngbSlide>
+                              <img [src]="images[0]" alt="Random first slide">
+                              <div class="carousel-caption">
+                                <h2>Travel!</h2>
+                              </div>
+                            </ng-template>
+                            <ng-template ngbSlide>
+                              <img [src]="images[1]" alt="Random second slide">
+                              <div class="carousel-caption">
+                                <h2>Book!</h2>
+                              </div>
+                            </ng-template>
+                            <ng-template ngbSlide>
+                              <img [src]="images[2]" alt="Random third slide">
+                              <div class="carousel-caption">
+                                <h2>Go!</h2>
+                              </div>
+                            </ng-template>
+                          </ngb-carousel>
+                        </div>
+                        &nbsp;
+                        <div class="col-md-9" *ngSwitchCase="true" class="row justify-content-center">
                    
                                 <button type="submit" id="save-entity" class="btn btn-primary"  [routerLink]="['/transport/search']">
                                     &nbsp;<span>Book Now!</span>

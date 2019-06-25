@@ -18,6 +18,8 @@ import { BookingappHomeModule } from './home/home.module';
 import { BookingappAccountModule } from './account/account.module';
 import { BookingappEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ErrorComponent } from './layouts';
 
@@ -36,7 +38,8 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
     BookingappAccountModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     BookingappEntityModule,
-    BookingappAppRoutingModule
+    BookingappAppRoutingModule,
+    NgbModule
   ],
   declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent],
   providers: [
